@@ -9,7 +9,7 @@ class MovieRemoteDataSourceImpl @Inject constructor(
     private val service: MovieApiService
 ) : MovieRemoteDataSource {
 
-    override fun getPopularMovies(apiKey: String): Single<NetworkMovieResponse> {
-        return service.getPopularMovies(apiKey)
+    override fun getPopularMovies(): Single<NetworkMovieResponse> {
+        return service.getPopularMovies()
     }
 }

@@ -12,8 +12,8 @@ class MovieRepositoryImpl @Inject constructor(
     private val remoteDataSource: MovieRemoteDataSource
 ) : MovieRepository {
 
-    override fun getPopularMovies(apiKey: String): Flow<List<DomainMovie>> = flow {
-        val response = remoteDataSource.getPopularMovies(apiKey).blockingGet()
+    override fun getPopularMovies(): Flow<List<DomainMovie>> = flow {
+        val response = remoteDataSource.getPopularMovies().blockingGet()
         emit(response.results.map { it.toDomain() })
     }
 

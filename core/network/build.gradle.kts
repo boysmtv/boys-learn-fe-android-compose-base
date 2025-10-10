@@ -15,20 +15,29 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
 
-        buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-        buildConfigField("String", "TMDB_API_KEY", "\"https://api.themoviedb.org/3/\"")
+        buildConfigField("String", "TMDB_BASE_URL", "\"${property("TMDB_BASE_URL")}\"")
+        buildConfigField("String", "TMDB_API_KEY", "\"${property("TMDB_API_KEY")}\"")
+        buildConfigField("String", "TMDB_BASE_URL_IMAGE_200", "\"${property("TMDB_BASE_URL_IMAGE_200")}\"")
+        buildConfigField("String", "TMDB_BASE_URL_IMAGE_500", "\"${property("TMDB_BASE_URL_IMAGE_500")}\"")
+        buildConfigField("String", "TMDB_BASE_URL_IMAGE_ORIGINAL", "\"${property("TMDB_BASE_URL_IMAGE_ORIGINAL")}\"")
     }
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "TMDB_API_KEY", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "TMDB_BASE_URL", "\"${property("TMDB_BASE_URL")}\"")
+            buildConfigField("String", "TMDB_API_KEY", "\"${property("TMDB_API_KEY")}\"")
+            buildConfigField("String", "TMDB_BASE_URL_IMAGE_200", "\"${property("TMDB_BASE_URL_IMAGE_200")}\"")
+            buildConfigField("String", "TMDB_BASE_URL_IMAGE_500", "\"${property("TMDB_BASE_URL_IMAGE_500")}\"")
+            buildConfigField("String", "TMDB_BASE_URL_IMAGE_ORIGINAL", "\"${property("TMDB_BASE_URL_IMAGE_ORIGINAL")}\"")
         }
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "TMDB_API_KEY", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "TMDB_BASE_URL", "\"${property("TMDB_BASE_URL")}\"")
+            buildConfigField("String", "TMDB_API_KEY", "\"${property("TMDB_API_KEY")}\"")
+            buildConfigField("String", "TMDB_BASE_URL_IMAGE_200", "\"${property("TMDB_BASE_URL_IMAGE_200")}\"")
+            buildConfigField("String", "TMDB_BASE_URL_IMAGE_500", "\"${property("TMDB_BASE_URL_IMAGE_500")}\"")
+            buildConfigField("String", "TMDB_BASE_URL_IMAGE_ORIGINAL", "\"${property("TMDB_BASE_URL_IMAGE_ORIGINAL")}\"")
         }
     }
 

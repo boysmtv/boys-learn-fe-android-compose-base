@@ -17,4 +17,5 @@ object UseCaseModule {
     fun provideGetPopularMoviesUseCase(
         repository: MovieRepository
     ): GetPopularMoviesUseCase = GetPopularMoviesUseCase(repository)
+
 }

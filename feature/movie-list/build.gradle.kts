@@ -33,13 +33,18 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:common"))
+    implementation(project(":core:ui"))
+    implementation(project(":core:nav"))
+    implementation(project(":core:model"))
+    implementation(project(":core:network"))
+    implementation(project(":core:storage"))
+
     implementation(project(":domain:model"))
     implementation(project(":domain:repository"))
     implementation(project(":domain:usecase"))
 
-    implementation(project(":core:ui"))
-    implementation(project(":core:nav"))
-    implementation(project(":core:common"))
+    implementation(project(":data:movie"))
 
     implementation(platform(libs.androidx.compose.bom))
 
@@ -54,6 +59,12 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil.compose)
+
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.retrofit.adapter.rxjava3)
+    implementation(libs.okhttp.logging)
+    implementation(libs.moshi.core)
+    implementation(libs.moshi.kotlin)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

@@ -1,6 +1,6 @@
 package com.movie.compose.core.network.di
 
-import com.movie.compose.core.network.NetworkConfig
+import com.movie.compose.core.network.config.NetworkConfig
 import com.movie.compose.core.network.service.MovieApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,12 +22,25 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient =
-        OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            })
+    fun provideAuthInterceptor(): Interceptor = Interceptor { chain ->
+        val newRequest = chain.request().newBuilder()
+            .addHeader("Authorization", "Bearer ${NetworkConfig.TMDB_API_KEY}")
             .build()
+        chain.proceed(newRequest)
+    }
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(authInterceptor: Interceptor): OkHttpClient {
+        val logging = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
+        return OkHttpClient.Builder()
+            .addInterceptor(authInterceptor)
+            .addInterceptor(logging)
+            .build()
+    }
 
     @Provides
     @Singleton
@@ -42,7 +56,7 @@ object NetworkModule {
         moshi: Moshi
     ): Retrofit =
         Retrofit.Builder()
-            .baseUrl(NetworkConfig.BASE_URL)
+            .baseUrl(NetworkConfig.TMDB_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
