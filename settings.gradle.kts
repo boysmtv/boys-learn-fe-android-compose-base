@@ -15,21 +15,20 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "movie-compose"
-
-include(":app")
-
-include(":core:network")
-include(":core:model")
-include(":core:storage")
-include(":core:ui")
-include(":core:nav")
-include(":core:common")
-
-include(":domain:model")
-include(":domain:repository")
-include(":domain:usecase")
-
-include(":data:movie")
-
-include(":feature:movie-list")
-include(":feature:movie-detail")
+include(
+    ":app",
+    ":core:common",
+    ":core:model",
+    ":core:nav",
+    ":core:network",
+    ":core:storage",
+    ":core:ui",
+    ":data:movie",
+    ":domain:model",
+    ":domain:repository",
+    ":domain:usecase",
+    ":feature:movie-list",
+    ":feature:movie-detail"
+)
+include(":feature:menu")
+include(":feature:music")
