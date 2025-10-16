@@ -1,4 +1,4 @@
-package com.movie.compose.feature.music
+package com.movie.compose.feature.music.feature.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

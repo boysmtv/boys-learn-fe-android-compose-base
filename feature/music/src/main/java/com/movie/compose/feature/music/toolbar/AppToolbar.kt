@@ -1,6 +1,5 @@
 package com.movie.compose.feature.music.toolbar
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +26,7 @@ import com.movie.compose.core.ui.R
 
 @Composable
 fun AppToolbar(
+    title: String,
     onSearchClick: () -> Unit = {},
     onSettingsClick: () -> Unit = {},
     backgroundColor: Color = Color.Black,
@@ -52,9 +52,9 @@ fun AppToolbar(
             )
             Text(
                 modifier = Modifier.padding(start = 8.dp),
-                text = "Music",
+                text = title,
                 style = MaterialTheme.typography.titleLarge,
-                color = Color.White
+                color = contentColor
             )
         }
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -74,5 +74,4 @@ fun AppToolbar(
             }
         }
     }
-
 }
