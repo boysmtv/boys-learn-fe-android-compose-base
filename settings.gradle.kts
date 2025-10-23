@@ -14,7 +14,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "movie-compose"
+rootProject.name = "Music Compose"
+
 include(
     ":app",
     ":core:common",
@@ -23,12 +24,10 @@ include(
     ":core:network",
     ":core:storage",
     ":core:ui",
-    ":data:movie",
     ":domain:model",
     ":domain:repository",
     ":domain:usecase",
-    ":feature:movie-list",
-    ":feature:movie-detail"
+    ":data:music",
+    ":feature:menu",
+    ":feature:music"
 )
-include(":feature:menu")
-include(":feature:music")

@@ -20,6 +20,8 @@ android {
         buildConfigField("String", "TMDB_BASE_URL_IMAGE_200", "\"${property("TMDB_BASE_URL_IMAGE_200")}\"")
         buildConfigField("String", "TMDB_BASE_URL_IMAGE_500", "\"${property("TMDB_BASE_URL_IMAGE_500")}\"")
         buildConfigField("String", "TMDB_BASE_URL_IMAGE_ORIGINAL", "\"${property("TMDB_BASE_URL_IMAGE_ORIGINAL")}\"")
+
+        buildConfigField("String", "ITUNES_BASE_URL", "\"${property("ITUNES_BASE_URL")}\"")
     }
 
     buildTypes {
@@ -29,6 +31,8 @@ android {
             buildConfigField("String", "TMDB_BASE_URL_IMAGE_200", "\"${property("TMDB_BASE_URL_IMAGE_200")}\"")
             buildConfigField("String", "TMDB_BASE_URL_IMAGE_500", "\"${property("TMDB_BASE_URL_IMAGE_500")}\"")
             buildConfigField("String", "TMDB_BASE_URL_IMAGE_ORIGINAL", "\"${property("TMDB_BASE_URL_IMAGE_ORIGINAL")}\"")
+
+            buildConfigField("String", "ITUNES_BASE_URL", "\"${property("ITUNES_BASE_URL")}\"")
         }
         release {
             isMinifyEnabled = false
@@ -38,6 +42,8 @@ android {
             buildConfigField("String", "TMDB_BASE_URL_IMAGE_200", "\"${property("TMDB_BASE_URL_IMAGE_200")}\"")
             buildConfigField("String", "TMDB_BASE_URL_IMAGE_500", "\"${property("TMDB_BASE_URL_IMAGE_500")}\"")
             buildConfigField("String", "TMDB_BASE_URL_IMAGE_ORIGINAL", "\"${property("TMDB_BASE_URL_IMAGE_ORIGINAL")}\"")
+
+            buildConfigField("String", "ITUNES_BASE_URL", "\"${property("ITUNES_BASE_URL")}\"")
         }
     }
 
@@ -56,6 +62,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:model"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.converter.moshi)

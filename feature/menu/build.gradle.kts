@@ -44,7 +44,7 @@ dependencies {
     implementation(project(":domain:repository"))
     implementation(project(":domain:usecase"))
 
-    implementation(project(":data:movie"))
+    implementation(project(":data"))
 
     implementation(platform(libs.androidx.compose.bom))
 

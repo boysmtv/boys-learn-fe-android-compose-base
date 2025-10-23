@@ -22,6 +22,6 @@ fun SearchScreen(navController: NavHostController) {
             .background(Color.Black),
         contentAlignment = Alignment.Center
     ) {
-        Text("Settings Screen", color = Color.White, fontSize = 20.sp)
+        Text("Search Screen", color = Color.White, fontSize = 20.sp)
     }
 }

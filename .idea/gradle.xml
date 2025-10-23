@@ -19,15 +19,13 @@
             <option value="$PROJECT_DIR$/core/storage" />
             <option value="$PROJECT_DIR$/core/ui" />
             <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/movie" />
+            <option value="$PROJECT_DIR$/data/music" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/model" />
             <option value="$PROJECT_DIR$/domain/repository" />
             <option value="$PROJECT_DIR$/domain/usecase" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/menu" />
-            <option value="$PROJECT_DIR$/feature/movie-detail" />
-            <option value="$PROJECT_DIR$/feature/movie-list" />
             <option value="$PROJECT_DIR$/feature/music" />
           </set>
         </option>

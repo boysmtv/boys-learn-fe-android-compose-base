@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "com.movie.compose.core.model"
+    namespace = "com.movie.compose.data"
     compileSdk = property("COMPILE_SDK").toString().toInt()
 
     defaultConfig {
@@ -13,6 +15,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -20,18 +23,34 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = false
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions { jvmTarget = "17" }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
-    implementation(libs.retrofit.converter.moshi)
-    implementation(libs.moshi.core)
-    implementation(libs.moshi.kotlin)
+    implementation(project(":core:network"))
+    implementation(project(":core:common"))
+    implementation(project(":core:model"))
+
+    implementation(project(":domain:model"))
+    implementation(project(":domain:repository"))
+    implementation(project(":domain:usecase"))
+
+    implementation(libs.rxjava)
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.rx3)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

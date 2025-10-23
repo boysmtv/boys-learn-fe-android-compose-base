@@ -10,4 +10,6 @@ object NetworkConfig {
     val TMDB_BASE_URL_IMAGE_500 get() = BuildConfig.TMDB_BASE_URL_IMAGE_500
     val TMDB_BASE_URL_IMAGE_ORIGINAL get() = BuildConfig.TMDB_BASE_URL_IMAGE_ORIGINAL
 
+
+    val ITUNES_BASE_URL get() = BuildConfig.ITUNES_BASE_URL
 }

@@ -45,12 +45,10 @@ dependencies {
     implementation(project(":domain:repository"))
     implementation(project(":domain:usecase"))
 
-    implementation(project(":data:movie"))
+    implementation(project(":data"))
 
     implementation(project(":feature:music"))
     implementation(project(":feature:menu"))
-    implementation(project(":feature:movie-list"))
-    implementation(project(":feature:movie-detail"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)

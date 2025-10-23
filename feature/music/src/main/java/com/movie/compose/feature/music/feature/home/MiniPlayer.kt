@@ -29,12 +29,6 @@ import com.movie.compose.core.ui.R
 @Composable
 fun MiniPlayer() {
     Box(Modifier.fillMaxSize()) {
-        Text(
-            "Isi halaman",
-            modifier = Modifier.align(Alignment.Center),
-            color = Color.White
-        )
-
         Box(
             Modifier
                 .fillMaxWidth()
